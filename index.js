@@ -46,7 +46,8 @@ async function handleInput(e) {
             return;
     }
     grid.cells.forEach(cell => cell.mergeTiles());
-    grid.randomEmptyCell().tile = new Tile(gameBoard);
+    const newTile = new Tile(gameBoard)
+    grid.randomEmptyCell().tile = newTile;
 
     if (!canMoveUp() && !canMoveDown() && !canMoveLeft() && !canMoveRight()) {
         newTile.waitForTransition(true).then(() => {
